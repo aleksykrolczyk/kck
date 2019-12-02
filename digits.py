@@ -9,7 +9,7 @@ Will create new nn model and save it in digits.model
 """
 
 IN_SHAPE = (28, 28, 1)
-EPOCHS = 5
+EPOCHS = 15
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 # Getting rid of zeroes from both train and test sets
@@ -45,4 +45,4 @@ model.fit(x_train, y_train, epochs=EPOCHS)
 # In case you want to see metrics on test set
 print(model.evaluate(x_test, y_test))
 
-model.save('digits.model')
+model.save(f'digits{EPOCHS}epochs.model')

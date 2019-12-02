@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5a58c166-12de-43d1-b0c8-b381bfae7891" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digits.model/variables/variables.data-00000-of-00002" beforeDir="false" afterPath="$PROJECT_DIR$/digits.model/variables/variables.data-00000-of-00002" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digits.model/variables/variables.data-00001-of-00002" beforeDir="false" afterPath="$PROJECT_DIR$/digits.model/variables/variables.data-00001-of-00002" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digits.py" beforeDir="false" afterPath="$PROJECT_DIR$/digits.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/digits_examples/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/digits_examples/4.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/michal.py" beforeDir="false" afterPath="$PROJECT_DIR$/michal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nntest.py" beforeDir="false" afterPath="$PROJECT_DIR$/nntest.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +19,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="copy" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,9 +29,6 @@
   </component>
   <component name="ProjectId" id="1U0zq1aq1rVhkBcpXhGTARfEwGa" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectReloadState">
-    <option name="STATE" value="1" />
-  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/nntest.py" />
@@ -49,7 +51,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.michal">
+  <component name="RunManager" selected="Python.digits">
     <configuration name="digits" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="kck" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -169,10 +171,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.michal" />
-        <item itemvalue="Python.dominik" />
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.digits" />
+        <item itemvalue="Python.michal" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.dominik" />
       </list>
     </recent_temporary>
@@ -191,31 +192,9 @@
       <workItem from="1574750180809" duration="577000" />
       <workItem from="1574750800773" duration="2719000" />
       <workItem from="1574780121667" duration="5275000" />
-      <workItem from="1575275653486" duration="710000" />
-      <workItem from="1575282041760" duration="1044000" />
+      <workItem from="1575275653486" duration="594000" />
+      <workItem from="1575321448610" duration="1957000" />
     </task>
-    <task id="LOCAL-00001" summary="copy">
-      <created>1575281959370</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1575281959371</updated>
-    </task>
-    <task id="LOCAL-00002" summary="copy">
-      <created>1575282027208</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1575282027208</updated>
-    </task>
-    <task id="LOCAL-00003" summary="copy">
-      <created>1575282192354</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1575282192354</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,26 +213,11 @@
       </map>
     </option>
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="copy" />
-    <option name="LAST_COMMIT_MESSAGE" value="copy" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/michal.py</url>
-          <line>21</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/kck$test.coverage" NAME="test Coverage Results" MODIFIED="1575276275163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/kck$michal.coverage" NAME="michal Coverage Results" MODIFIED="1575283064960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/kck$nntest.coverage" NAME="nntest Coverage Results" MODIFIED="1574514977913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/kck$digits.coverage" NAME="digits Coverage Results" MODIFIED="1574785904799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kck$michal.coverage" NAME="michal Coverage Results" MODIFIED="1575322769743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/kck$dominik.coverage" NAME="dominik Coverage Results" MODIFIED="1574786284367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kck$digits.coverage" NAME="digits Coverage Results" MODIFIED="1575322774436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

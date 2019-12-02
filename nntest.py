@@ -33,4 +33,4 @@
 #     print(np.argmax(predictions[i]))
 #
 
-model = tf.keras.models.load_model('digits.model')
+# model = tf.keras.models.load_model('digits.model')
