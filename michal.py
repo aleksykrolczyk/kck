@@ -1,5 +1,9 @@
 import cv2
 import numpy as np
+from skimage import morphology
+import tensorflow as tf
+
+SIZE = (28, 28)
 
 def show(img):
     cv2.imshow("", img)
@@ -15,6 +19,7 @@ def sort_contours(cnts, method="left-to-right"):
 
 def extract(img_for_box_extraction_path, cropped_dir_path):
     base_img = cv2.imread(img_for_box_extraction_path, 0)
+    base_img = morphology.erosion(base_img)
     threshold, img = cv2.threshold(base_img, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
     img = 255 - img
 
@@ -45,11 +50,29 @@ def extract(img_for_box_extraction_path, cropped_dir_path):
     (contours, boundingBoxes) = sort_contours(contours, method="top-to-bottom")
 
     idx = 0
+
+    model = tf.keras.models.load_model('digits.model')
+
+    def dilate_and_resize(img, steps=2):
+        for i in range(steps):
+            img = morphology.dilation(img)
+        img = cv2.resize(img, SIZE)
+        img = 255 - img
+        img = img/255
+        img = img.reshape(28, 28, 1)
+        return img
+
     for c in contours:
         x, y, w, h = cv2.boundingRect(c)
 
         idx += 1
         new_img = base_img[y:y + h, x:x + w]
+
+        new_img = dilate_and_resize(new_img)
+        data = np.array([new_img])
+        data = data.astype('float32')
+        prediction = model.predict(data)
+        print(np.argmax(prediction[0]))
         show(new_img)
 
 #extract("sudoku.jpeg", "./Cropped/")
@@ -58,5 +81,5 @@ def extract(img_for_box_extraction_path, cropped_dir_path):
 #extract("s1.png", "")
 #extract("s2.png", "")
 #extract("s3.png", "")
-extract("s2R.png", "")
-extract("s3R.png", "")
+extract("result.jpg", "")
+# extract("s3R.png", "")

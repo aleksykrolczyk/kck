@@ -106,15 +106,10 @@ def calculate_points(im):
     return pts
 
 
-
-
-
-
-image = cv2.imread('images/test4.jpg', cv2.IMREAD_GRAYSCALE)
-
+image = cv2.imread('test.jpg', cv2.IMREAD_GRAYSCALE)
 
 im_bw = cv2.bitwise_not(image)
-thresh,im_bw = cv2.threshold(im_bw, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+thresh, im_bw = cv2.threshold(im_bw, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
 
 im_bw = morphology.erosion(im_bw)
 
@@ -126,7 +121,8 @@ pts = calculate_points(im_bw)
 warped = four_point_transform(image, pts)
 
 
-#cv2.imshow("BlackWhite", im_bw)
-#cv2.imshow("Original", image)
-#cv2.imshow("Warped", warped)
+# cv2.imshow("BlackWhite", im_bw)
+cv2.imshow("Original", image)
+cv2.imwrite('result.jpg', warped)
+cv2.imshow("Warped", warped)
 cv2.waitKey(0)
