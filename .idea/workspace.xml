@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a58c166-12de-43d1-b0c8-b381bfae7891" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kck.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kck.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digits.model/saved_model.pb" beforeDir="false" afterPath="$PROJECT_DIR$/digits.model/saved_model.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digits.model/variables/variables.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/digits.model/variables/variables.data-00000-of-00001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digits.model/variables/variables.index" beforeDir="false" afterPath="$PROJECT_DIR$/digits.model/variables/variables.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/digits.py" beforeDir="false" afterPath="$PROJECT_DIR$/digits.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dominik.py" beforeDir="false" afterPath="$PROJECT_DIR$/dominik.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/michal.py" beforeDir="false" afterPath="$PROJECT_DIR$/michal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nntest.py" beforeDir="false" afterPath="$PROJECT_DIR$/nntest.py" afterDir="false" />
-    </list>
+    <list default="true" id="5a58c166-12de-43d1-b0c8-b381bfae7891" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,8 +184,16 @@
       <workItem from="1574750180809" duration="577000" />
       <workItem from="1574750800773" duration="2719000" />
       <workItem from="1574780121667" duration="5275000" />
-      <workItem from="1575275653486" duration="594000" />
+      <workItem from="1575275653486" duration="657000" />
     </task>
+    <task id="LOCAL-00001" summary="copy">
+      <created>1575281959370</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575281959371</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +211,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="copy" />
+    <option name="LAST_COMMIT_MESSAGE" value="copy" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/kck$test.coverage" NAME="test Coverage Results" MODIFIED="1575276275163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
