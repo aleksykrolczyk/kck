@@ -1,20 +1,14 @@
 import cv2
 import numpy as np
 
+
 def show(img):
-    cv2.imshow("", img)
+    cv2.imshow("image", img)
     cv2.waitKey(0)
 
-def sort_contours(cnts, method="left-to-right"):
-    i = 0
-    boundingBoxes = [cv2.boundingRect(c) for c in cnts]
-    (cnts, boundingBoxes) = zip(*sorted(zip(cnts, boundingBoxes),
-                                        key=lambda b: b[1][i]))
-    return (cnts, boundingBoxes)
 
-
-def extract(img_for_box_extraction_path, cropped_dir_path):
-    base_img = cv2.imread(img_for_box_extraction_path, 0)
+def extract(path):
+    base_img = cv2.imread(path, 0)
     threshold, img = cv2.threshold(base_img, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
     img = 255 - img
 
@@ -42,21 +36,22 @@ def extract(img_for_box_extraction_path, cropped_dir_path):
     show(img)
     contours, hierarchy = cv2.findContours(
         img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    (contours, boundingBoxes) = sort_contours(contours, method="top-to-bottom")
 
-    idx = 0
-    for c in contours:
-        x, y, w, h = cv2.boundingRect(c)
+    rects = []
 
-        idx += 1
+    for contour in contours:
+        rects.append(cv2.boundingRect(contour))
+
+    if len(rects) != 81:
+        print("UWAGA, wykryto " + len(rects) + " pól, nie 81")
+
+    rects.sort(key=lambda x: x[1] * 9 + x[0])
+
+    for r in rects:
+        x, y, w, h = r
+
         new_img = base_img[y:y + h, x:x + w]
         show(new_img)
 
-#extract("sudoku.jpeg", "./Cropped/")
-#extract("sudoku1.jpg", "./Cropped/")
-#extract("sudoku2.jpg", "./Cropped/")
-#extract("s1.png", "")
-#extract("s2.png", "")
-#extract("s3.png", "")
-extract("s2R.png", "")
-extract("s3R.png", "")
+
+extract("s1.png")
