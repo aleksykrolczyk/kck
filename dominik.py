@@ -73,7 +73,7 @@ def calculate_points(im):
         if (x1 != -1 and y1 != -1):
             break
         for y in range(width):
-            print(im[x, y])
+            # print(im[x, y])
             if (im[x, y] == 255):
                 x1, y1 = x, y
                 break
@@ -105,28 +105,23 @@ def calculate_points(im):
 
     return pts
 
+def pers_transform(img):
+    image = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
+
+    im_bw = cv2.bitwise_not(image)
+    thresh, im_bw = cv2.threshold(im_bw, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+
+    im_bw = morphology.erosion(im_bw)
+
+    pts = calculate_points(im_bw)
+
+    warped = four_point_transform(image, pts)
+
+    cv2.imshow("Original", image)
+    cv2.waitKey(0)
+    cv2.imwrite('temp.jpg', warped)
+    cv2.imshow("Warped", warped)
+    cv2.waitKey(0)
 
 
-
-
-
-image = cv2.imread('images/test4.jpg', cv2.IMREAD_GRAYSCALE)
-
-
-im_bw = cv2.bitwise_not(image)
-thresh,im_bw = cv2.threshold(im_bw, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-
-im_bw = morphology.erosion(im_bw)
-
-# im_bw = cv2.resize(im_bw, (1000,500), interpolation = cv2.INTER_AREA)
-
-
-pts = calculate_points(im_bw)
-
-warped = four_point_transform(image, pts)
-
-
-#cv2.imshow("BlackWhite", im_bw)
-#cv2.imshow("Original", image)
-#cv2.imshow("Warped", warped)
-cv2.waitKey(0)
+pers_transform('data/sud3.jpg')

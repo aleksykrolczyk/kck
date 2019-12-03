@@ -9,6 +9,7 @@ Will create new nn model and save it in digits.model
 """
 
 IN_SHAPE = (28, 28, 1)
+EPOCHS = 15
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 # Getting rid of zeroes from both train and test sets
@@ -32,22 +33,16 @@ model.add(Conv2D(28, kernel_size=(3, 3), input_shape=IN_SHAPE))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Flatten())
 model.add(Dense(128, activation=tf.nn.relu))
-model.add(Dropout(0.2))
+model.add(Dropout(0.20))
 model.add(Dense(10, activation=tf.nn.softmax))
 
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 
-model.fit(x_train, y_train, epochs=5)
-
-print('DONE')
-model.evaluate(x_test, y_test)
+model.fit(x_train, y_train, epochs=EPOCHS)
 
 # In case you want to see metrics on test set
-# loss, acc = model.evaluate(x_test, y_test)
-# print(loss)
-# print(acc)
+print(model.evaluate(x_test, y_test))
 
-model.summary()
-model.save('digits.model')
+model.save(f'digits{EPOCHS}epochs.model')

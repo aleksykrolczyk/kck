@@ -1,6 +1,10 @@
 import cv2
 import numpy as np
 from skimage import morphology
+import tensorflow as tf
+import matplotlib.pyplot as plt
+SIZE = (28, 28)
+
 
 
 def show(img):
@@ -100,6 +104,7 @@ def extract(path):
  
     base_img = preprocessing(image)
     threshold, img = cv2.threshold(base_img, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+    img_bw = img
     img = 255 - img
 
     show(img)
@@ -133,15 +138,41 @@ def extract(path):
         rects.append(cv2.boundingRect(contour))
 
     if len(rects) != 81:
-        print("UWAGA, wykryto " + len(rects) + " pól, nie 81")
+        print("UWAGA, wykryto " + str(len(rects)) + " pól, nie 81")
 
     rects.sort(key=lambda x: x[1] * 9 + x[0])
 
-    for r in rects:
+    model = tf.keras.models.load_model('digits10epochs.model')
+    def dilate_and_resize(img, steps=2):
+        for i in range(steps):
+            img = morphology.dilation(img)
+        img = cv2.resize(img, SIZE)
+        img = 255 - img
+        # img = ((img/255) ** 5) * 255
+        print(img)
+        plt.imshow(img, cmap=plt.cm.binary)
+        plt.show()
+        img = img.reshape(28, 28, 1)
+
+        return img
+
+    sudoku = []
+    row = []
+
+    for i, r in enumerate(rects):
         x, y, w, h = r
 
-        new_img = base_img[y:y + h, x:x + w]
-        show(new_img)
+        chunk = img_bw[y: y + h, x:x + w]
+        show(chunk)
+        new_img = dilate_and_resize(chunk, steps=0)
+        data = np.array([new_img]).astype('float32')
+        prediction = model.predict(data)
+        print(np.argmax(prediction))
+        row.append(np.argmax(prediction))
+        if (i+1) % 9 == 0:
+            sudoku.append(row)
+            row = []
+    return np.array(sudoku).T.tolist()
 
-
-extract("s1.png")
+sudoku = extract("temp.jpg")
+print(sudoku)

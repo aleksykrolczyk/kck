@@ -13,7 +13,7 @@ def erode_and_resize(img, steps=3):
     return img
 
 
-model = tf.keras.models.load_model('digits.model')
+model = tf.keras.models.load_model('digits10epochs.model')
 
 
 imgs = []
@@ -32,3 +32,5 @@ predictions = model.predict(imgs)
 for i in range(10):
     print(np.argmax(predictions[i]))
 
+
+# model = tf.keras.models.load_model('digits.model')
