@@ -50,16 +50,14 @@ def four_point_transform(image, pts):
 
 
 def check_straight(corners,max_x,max_y,min_x,min_y):
+    s = 0
     for i in corners:
         x, y = i.ravel()
-        if x == max_x:
-            return 1
-        if x == min_x:
-            return 1
-        if y == min_y:
-            return 1
-        if y == max_y:
-            return 1
+        if x == max_x or x == min_x or y == min_y or y == max_y:
+            s += 1
+            print(s)
+    if(s>4 or s<4):
+        return 1
     return 0
 
 
