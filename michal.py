@@ -3,8 +3,71 @@ import numpy as np
 from skimage import morphology
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import sys
+
 SIZE = (28, 28)
 
+def output(a):
+    sys.stdout.write(str(a))
+
+def print_field(field):
+    if not field:
+        output("No solution")
+        return
+    for i in range(9):
+        for j in range(9):
+            cell = field[i][j]
+            if cell == 0 or isinstance(cell, set):
+                output('.')
+            else:
+                output(cell)
+            if (j + 1) % 3 == 0 and j < 8:
+                output(' |')
+
+            if j != 8:
+                output(' ')
+        output('\n')
+        if (i + 1) % 3 == 0 and i < 8:
+            output("- - - + - - - + - - -\n")
+
+
+def findNextCellToFill(grid, i, j):
+    for x in range(i, 9):
+        for y in range(j, 9):
+            if grid[x][y] == 0:
+                return x, y
+    for x in range(0, 9):
+        for y in range(0, 9):
+            if grid[x][y] == 0:
+                return x, y
+    return -1, -1
+
+
+def isValid(grid, i, j, e):
+    rowOk = all([e != grid[i][x] for x in range(9)])
+    if rowOk:
+        columnOk = all([e != grid[x][j] for x in range(9)])
+        if columnOk:
+            secTopX, secTopY = 3 * (i // 3), 3 * (j // 3)
+            for x in range(secTopX, secTopX + 3):
+                for y in range(secTopY, secTopY + 3):
+                    if grid[x][y] == e:
+                        return False
+            return True
+    return False
+
+
+def solveSudoku(grid, i=0, j=0):
+    i, j = findNextCellToFill(grid, i, j)
+    if i == -1:
+        return True
+    for e in range(1, 10):
+        if isValid(grid, i, j, e):
+            grid[i][j] = e
+            if solveSudoku(grid, i, j):
+                return True
+            grid[i][j] = 0
+    return False
 
 
 def show(img):
@@ -48,29 +111,26 @@ def four_point_transform(image, pts):
     warped = cv2.warpPerspective(image, M, (maxWidth, maxHeight))
     return warped
 
-
 def check_straight(corners,max_x,max_y,min_x,min_y):
+    s = 0
     for i in corners:
         x, y = i.ravel()
-        if x == max_x:
-            return 1
-        if x == min_x:
-            return 1
-        if y == min_y:
-            return 1
-        if y == max_y:
-            return 1
+        if x == max_x or x == min_x or y == min_y or y == max_y:
+            s += 1
+            print(s)
+    if(s>4 or s<4):
+        return 1
     return 0
 
 
 def get_corners(im):
     im = morphology.dilation(im)
     
-    corners = cv2.goodFeaturesToTrack(im,100,0.08,10)
+    corners = cv2.goodFeaturesToTrack(im,300,0.08,50)
     max_x,max_y,min_x,min_y=0,0,10000,10000
     for i in corners:
         x, y = i.ravel()
-        cv2.circle(im, (x, y), 3, 255, -1)
+        #cv2.circle(im, (x, y), 3, 255, -1)
         if x >= max_x:
             max_x = x
             pt1 = (x, y)
@@ -83,7 +143,7 @@ def get_corners(im):
         if y >= max_y:
             max_y = y
             pt4 = (x, y)
-
+    cv2.imshow("",im)
     if check_straight(corners,max_x,max_y,min_x,min_y)==1:
         return []
 
@@ -102,7 +162,7 @@ def preprocessing(image):
 def extract(path):
     pre_img = cv2.imread(path,cv2.IMREAD_GRAYSCALE)
  
-    base_img = preprocessing(image)
+    base_img = preprocessing(pre_img)
     threshold, img = cv2.threshold(base_img, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
     img_bw = img
     img = 255 - img
@@ -174,5 +234,11 @@ def extract(path):
             row = []
     return np.array(sudoku).T.tolist()
 
-sudoku = extract("temp.jpg")
+sudoku = extract("data/sud55.jpg")
 print(sudoku)
+
+
+solveSudoku(sudoku)
+
+print_field(sudoku)
+
