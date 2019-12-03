@@ -2,13 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a58c166-12de-43d1-b0c8-b381bfae7891" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mnist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dominik.py" beforeDir="false" afterPath="$PROJECT_DIR$/dominik.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/michal.py" beforeDir="false" afterPath="$PROJECT_DIR$/michal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nntest.py" beforeDir="false" afterPath="$PROJECT_DIR$/nntest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -48,7 +67,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.mnist">
     <configuration name="digits" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="kck" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -115,6 +134,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="mnist" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="kck" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mnist.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="nntest" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="kck" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -165,14 +206,15 @@
       <item itemvalue="Python.test" />
       <item itemvalue="Python.michal" />
       <item itemvalue="Python.dominik" />
+      <item itemvalue="Python.mnist" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.dominik" />
+        <item itemvalue="Python.mnist" />
         <item itemvalue="Python.michal" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.dominik" />
         <item itemvalue="Python.digits" />
-        <item itemvalue="Python.michal" />
       </list>
     </recent_temporary>
   </component>
@@ -193,6 +235,7 @@
       <workItem from="1575275653486" duration="710000" />
       <workItem from="1575282041760" duration="1044000" />
       <workItem from="1575321537655" duration="715000" />
+      <workItem from="1575357878867" duration="2906000" />
     </task>
     <task id="LOCAL-00001" summary="copy">
       <created>1575281959370</created>
@@ -222,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575321562632</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="data">
+      <created>1575357934135</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1575357934135</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,13 +293,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="copy" />
-    <option name="LAST_COMMIT_MESSAGE" value="copy" />
+    <MESSAGE value="data" />
+    <option name="LAST_COMMIT_MESSAGE" value="data" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/kck$test.coverage" NAME="test Coverage Results" MODIFIED="1575276275163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/kck$michal.coverage" NAME="michal Coverage Results" MODIFIED="1575283064960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kck$test.coverage" NAME="test Coverage Results" MODIFIED="1575360416113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kck$michal.coverage" NAME="michal Coverage Results" MODIFIED="1575361203649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/kck$nntest.coverage" NAME="nntest Coverage Results" MODIFIED="1574514977913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/kck$digits.coverage" NAME="digits Coverage Results" MODIFIED="1574785904799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/kck$dominik.coverage" NAME="dominik Coverage Results" MODIFIED="1574786284367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kck$dominik.coverage" NAME="dominik Coverage Results" MODIFIED="1575359123209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kck$mnist.coverage" NAME="mnist Coverage Results" MODIFIED="1575361280438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

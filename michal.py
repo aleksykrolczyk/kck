@@ -1,6 +1,9 @@
 import cv2
 import numpy as np
-
+from skimage import morphology
+import tensorflow as tf
+import matplotlib.pyplot as plt
+SIZE = (28, 28)
 
 def show(img):
     cv2.imshow("image", img)
@@ -43,7 +46,7 @@ def extract(path):
         rects.append(cv2.boundingRect(contour))
 
     if len(rects) != 81:
-        print("UWAGA, wykryto " + len(rects) + " pól, nie 81")
+        print("UWAGA, wykryto " + str(len(rects)) + " pól, nie 81")
 
     rects.sort(key=lambda x: x[1] * 9 + x[0])
 
@@ -53,8 +56,12 @@ def extract(path):
             img = morphology.dilation(img)
         img = cv2.resize(img, SIZE)
         img = 255 - img
-        img = img/255
+        img = ((img/255) ** 5) * 255
+        print(img)
+        plt.imshow(img, cmap=plt.cm.binary)
+        plt.show()
         img = img.reshape(28, 28, 1)
+
         return img
 
     sudoku = []
@@ -65,15 +72,15 @@ def extract(path):
 
         new_img = base_img[y:y + h, x:x + w]
         show(new_img)
-
-        new_img = dilate_and_resize(new_img)
+        new_img = dilate_and_resize(new_img, steps=0)
         data = np.array([new_img]).astype('float32')
         prediction = model.predict(data)
         print(np.argmax(prediction))
         row.append(np.argmax(prediction))
-        if (i+1) % 9 == 0L
+        if (i+1) % 9 == 0:
             sudoku.append(row)
             row = []
     return np.array(sudoku).T.tolist()
 
-sudoku = extract("s1.png")
+sudoku = extract("temp.jpg")
+print(sudoku)

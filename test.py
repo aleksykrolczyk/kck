@@ -11,11 +11,10 @@ def erode_and_resize(img, steps=2):
     for i in range(steps):
         img = morphology.erosion(img)
     img = cv2.resize(img, SIZE)
-    img = morphology.erosion(img)
     return img
 
 
-model = tf.keras.models.load_model('digits.model')
+model = tf.keras.models.load_model('digits6epochs.model')
 
 
 imgs = []
