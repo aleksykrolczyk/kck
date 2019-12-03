@@ -47,11 +47,33 @@ def extract(path):
 
     rects.sort(key=lambda x: x[1] * 9 + x[0])
 
-    for r in rects:
+    model = tf.keras.models.load_model('digits10epochs.model')
+    def dilate_and_resize(img, steps=2):
+        for i in range(steps):
+            img = morphology.dilation(img)
+        img = cv2.resize(img, SIZE)
+        img = 255 - img
+        img = img/255
+        img = img.reshape(28, 28, 1)
+        return img
+
+    sudoku = []
+    row = []
+
+    for i, r in enumerate(rects):
         x, y, w, h = r
 
         new_img = base_img[y:y + h, x:x + w]
         show(new_img)
 
+        new_img = dilate_and_resize(new_img)
+        data = np.array([new_img]).astype('float32')
+        prediction = model.predict(data)
+        print(np.argmax(prediction))
+        row.append(np.argmax(prediction))
+        if (i+1) % 9 == 0L
+            sudoku.append(row)
+            row = []
+    return np.array(sudoku).T.tolist()
 
-extract("s1.png")
+sudoku = extract("s1.png")
