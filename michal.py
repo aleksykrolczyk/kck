@@ -5,6 +5,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 SIZE = (28, 28)
 
+
 def show(img):
     cv2.imshow("image", img)
     cv2.waitKey(0)
@@ -13,6 +14,7 @@ def show(img):
 def extract(path):
     base_img = cv2.imread(path, 0)
     threshold, img = cv2.threshold(base_img, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+    img_bw = img
     img = 255 - img
 
     show(img)
@@ -56,7 +58,7 @@ def extract(path):
             img = morphology.dilation(img)
         img = cv2.resize(img, SIZE)
         img = 255 - img
-        img = ((img/255) ** 5) * 255
+        # img = ((img/255) ** 5) * 255
         print(img)
         plt.imshow(img, cmap=plt.cm.binary)
         plt.show()
@@ -70,9 +72,9 @@ def extract(path):
     for i, r in enumerate(rects):
         x, y, w, h = r
 
-        new_img = base_img[y:y + h, x:x + w]
-        show(new_img)
-        new_img = dilate_and_resize(new_img, steps=0)
+        chunk = img_bw[y: y + h, x:x + w]
+        show(chunk)
+        new_img = dilate_and_resize(chunk, steps=0)
         data = np.array([new_img]).astype('float32')
         prediction = model.predict(data)
         print(np.argmax(prediction))

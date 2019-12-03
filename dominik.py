@@ -124,4 +124,4 @@ def pers_transform(img):
     cv2.waitKey(0)
 
 
-pers_transform('data/sud2.jpg')
+pers_transform('data/sud3.jpg')
